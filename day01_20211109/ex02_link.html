@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>링크태그 연습</title>
+    <style>
+        /* a 태그 스타일 적용 */
+        a{
+            color: red;
+        }
+
+        a:link{
+            text-decoration: none;
+        }
+        /* hover: 해당 요소에 마우스를 올렸을때 
+            가상 선택자 */
+        a:hover{
+            color: rosybrown;
+            background-color: red;
+        }
+    </style>
+
+
+</head>
+<body>
+    <!--  -->
+    <!-- 아마존 홈페이지로 이동하는 링크(새창에서 이동됨) -->
+    <a href="https://www.amazon.com/" target="_blank">아마존으로 이동</a><br> <br>
+    <!-- 쿠팡 홈페이지로 이동하는 링크 -->
+    <a href="https://www.coupang.com/">쿠팡으로 이동</a><br>
+    <!-- 이미지 클릭했을 때 링크 -->
+    <a href="https://www.chosun.com/site/data/html_dir/2020/08/18/2020081804556.html " target="_blank">
+        <!-- src: 출력할 그림 경로, altㅣ 그림이 안뜰 경우 보여줄 텍스트 -->
+        <img src="../images/WO4SKPUA62ESBOT2QY7QB5XTAI1.jpg" alt="펭귄사진"> <br> 
+    </a>
+
+    <img src="../images/WO4SKPUA62ESBOT2QY7QB5XTAI.jpg" alt="펭귄로그">
+  
+</body>
+</html>
