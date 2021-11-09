@@ -29,9 +29,10 @@ int a =0;
     - 대표적인 블록 태그
         - div, h1~h6 등
 ### 주로 사용하게 될 태그들
-
+```
 - <style>, <script>, <h1>, <p>, <div>
 - <form>, <input>, <button>, <select>
+```
 
 ### UI/UX
 - UI(User Interface): 화면, GUI(Graphical User Interface). 얼마나 보기 좋냐.
