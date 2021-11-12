@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fun1(){
+            const num1 = 5;
+            const num2 = 3;
+            let ele1 = document.getElementById('id2');
+
+            // num1 + num2 결과를 id2영역에 출력
+            // ele1.innerHTML = num1 + num2;
+            // ele1.textContent = num1 + num2 ;
+            let num3 = num1 + num2;
+            ele1.innerHTML = '<h2>' + num3 + '</h2>' ;
+
+            let ulprint = "<ul>";
+                for(let i = 1; i<=3; i++){
+                    ulprint += "<li>" + i+  "</li>"
+                }
+                ulprint += "</ul>";
+
+                const ele2 = document.getElementById("id3");
+                console.log(ulprint);
+                id3.innerHTML = ulprint;
+            
+        }
+    </script>
+</head>
+    <p id="id1" onclick="fun1()">html재밌다.</p>
+
+    <p id="id2">
+       
+    </p>
+    
+    <p id="id3"></p>
+        <ul>1</ul>
+        <ul>2</ul>
+        <ul>3</ul>
+<body>
+    
+</body>
+</html>
