@@ -21,10 +21,11 @@ btn1.addEventListener('click',function() {
 // promptFunction 함수 호출
 
 btn2.addEventListener("click", promptFunction);
-
+// 입력을 받을수 있는 함수
 function promptFunction(){
     console.log("promptFunction 호출됨")
-    prompt("프롬트입니다.")
+    const result = prompt("프롬프트입니다.")
+    console.log(result);
 }
 
 function alertFunction(){
