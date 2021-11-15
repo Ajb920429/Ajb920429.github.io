@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    점수: <input type="text" id="score"><br>
+    성적: <input type="text" id="sexual"><br>
+    <button onclick="cal()">성적계산</button>
+    <p id= "result">성적출력</p>
+    
+</body>
+    <script>
+        function cal(){
+            let score = document.getElementById('score').value;
+            let sexual = document.getElementById('sexual').value;
+            if(score<60){
+                console.log('f')
+            }else if(score<70){
+                console.log('d')
+            }else if(score<80){
+                console.log('b')
+            }else if(score<85){
+                console.log('b')
+            }else if(score<90){
+                console.log('b')
+            }else if(score<100){
+                console.log('a')
+            }
+
+            document.getElementById('result').innerHTML = score;
+            
+
+
+
+        }
+    </script>
+</html>
