@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function emailSelect(){
+            const domainSelect = document.getElementById('domainSelect').value
+            const domain = document.getElementById('domain');
+            // select 에서 선택한 값을 domaim id를 적용한 input 태그에 출력
+            domain.value = domainSelect;
+        }
+    </script>
+</head>
+<body>
+    <!-- 이메일폼을 만들어봅시다. 도메인을 선택하면 선태값이 input 칸에 나오도록 -->
+    이메일: <input type="text" name="emailId">@ <input type="text" id="domain" name="domain">
+    <select id="domainSelect" onchange="emailSelect()">
+        <option value="">직접입력</option>
+        <option value="naver.com">네이버</option>
+        <option value="gmail.com">지메일</option>
+        <option value="hanmail.net">한메일</option>
+    </select>
+</body>
+</html>
