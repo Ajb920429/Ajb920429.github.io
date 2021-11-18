@@ -5,8 +5,169 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+     
+        
+    </style>
+    <script>
+        
+        function idCheck(){
+            
+            const exp = /^(?=.*[a-z])(?=.*\d)[a-z\d]{6,10}$/;
+            
+         
+            const exp1 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,10}$/;
+            
+            
+            const exp2 = /^(?=.*[a-z])(?=.*\d)(?=.*[-_])[a-z\d-_]{5,20}$/; 
+            
+            const id = document.getElementById('id').value
+            if(id.match(exp2)){
+                console.log('유효한 형식입니다.')
+            }else{
+                console.log('유효하지 않는 형식입니다.')
+            }
+        }
+
+        function pwCheck(){
+            const pw = document.getElementById('pw').value;
+            const pwResult = document.getElementById('pw-result')
+
+            console.log('pw값:' ,pw)
+            const pwLength = pw.length;
+            console.log('pw길이값: ',pwLength)
+            
+            if(pwLength==0){
+                pwResult.innerHTML = '필수항목입니다'
+                pwResult.style.color='red'
+
+            }else if(pwLength < 8 || pwLength >20){
+                pwResult.innerHTML ='8~20자 이내로 작성해주세요'
+                pwResult.style.color='red'
+            }else{
+                pwResult.innerHTML = '좋습니다.'
+                pwResult.style.color ='green'
+            }
+
+        }
+
+        function pwConfirm(){
+            const pw = document.getElementById('pw').value
+            const pwConfirm = document.getElementById('pw-confirm').value
+            const pwConfirmResult = document.getElementById('pw-confirm-result')
+            console.log(pw)
+            console.log(pwConfirm)
+
+            if(pw == pwConfirm){
+                pwConfirmResult.innerHTML = '일치합니다'
+                pwConfirmResult.style.color = 'green'
+            }else{
+                pwConfirmResult.innerHTML = '일치하지 않습니다'
+                pwConfirmResult.style.color = 'red'
+            }
+
+        }
+
+        function emailSelect(){
+            const domainSelect = document.getElementById('domainSelect').value
+            const domain = document.getElementById('domain');
+           
+            domain.value = domainSelect;
+        }
+
+        function phoneCheck(){
+            const exp = /^\d{3}-\d{4}-\d{4}$/;
+            const phone = document.getElementById('phone').value
+            const result = document.getElementById('phone-check-result')
+
+            if(phone.match(exp)){
+                result.innerHTML = "유요한 형식입니다"
+                result.style.color = "green"
+            }else{
+                result.innerHTML = "유요한 형식이 아닙니다"
+                result.style.color = "red"
+            }
+        }
+    </script>
 </head>
 <body>
+
+    <div>
+    아이디: <input type="text" id="id" onblur="idCheck()" placeholder="영문소문자, 숫자 조합하여 6~10글자이내"><br> 
+    </div>
     
+    비밀번호: <input type="text" id="pw" placeholder="8~20자리로 입력" onblur="pwCheck()">
+    <span id="pw-result"></span><br>
+    비밀번호확인: <input type="text" id="pw-confirm" onkeyup="pwConfirm()" placeholder="비밀번호 한번 더 입력해주세요">
+    <span id="pw-confirm-result"></span><br>
+    이메일: <input type="text" name="emailId">@ <input type="text" id="domain" name="domain">
+    <select id="domainSelect" onchange="emailSelect()">
+        <option value="">직접입력</option>
+        <option value="naver.com">네이버</option>
+        <option value="gmail.com">지메일</option>
+        <option value="daum.net">다음</option>
+    </select><br>
+    성별:
+    <input type="radio" id="p" name="jointype" value="personal">
+    <label for="p">남자</label>
+    <input type="radio" id="c" name="jointype" value="commercial">
+    <label for="c">여자</label>
+    전화번호: <input type="text" id="phone" onblur="phoneCheck()">
+    <span id="phone-check-result"></span>
+    <body>
+        <input type="text" id="sample6_postcode" placeholder="우편번호">
+    <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+    <input type="text" id="sample6_address" placeholder="주소"><br>
+    <input type="text" id="sample6_detailAddress" placeholder="상세주소">
+    <input type="text" id="sample6_extraAddress" placeholder="참고항목">
+    
+    
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script>
+        function sample6_execDaumPostcode() {
+            new daum.Postcode({
+                oncomplete: function(data) {
+                   
+                    var addr = ''; 
+                    var extraAddr = ''; 
+    
+                    
+                    if (data.userSelectedType === 'R') { 
+                        addr = data.roadAddress;
+                    } else { 
+                        addr = data.jibunAddress;
+                    }
+    
+                    
+                    if(data.userSelectedType === 'R'){
+                       
+                        if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                            extraAddr += data.bname;
+                        }
+                       
+                        if(data.buildingName !== '' && data.apartment === 'Y'){
+                            extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                        }
+                       
+                        if(extraAddr !== ''){
+                            extraAddr = ' (' + extraAddr + ')';
+                        }
+                        
+                        document.getElementById("sample6_extraAddress").value = extraAddr;
+                    
+                    } else {
+                        document.getElementById("sample6_extraAddress").value = '';
+                    }
+    
+                  
+                    document.getElementById('sample6_postcode').value = data.zonecode;
+                    document.getElementById("sample6_address").value = addr;
+                  
+                    document.getElementById("sample6_detailAddress").focus();
+                }
+            }).open();
+        }
+    </script>
+
 </body>
 </html>
